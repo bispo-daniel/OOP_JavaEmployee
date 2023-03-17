@@ -26,6 +26,9 @@ public class Main {
                 case 4:
                     delete();
                         break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Type a number from 0 to 4...");
+                    menu();
             }
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(null, "You probably typed a chracter where a number is expected.\nTry again...");
@@ -72,6 +75,41 @@ public class Main {
     }
 
     private static void update() {
+        String idHandler = JOptionPane.showInputDialog(null, "Type the employee's id to be updated:");
+        int id = Integer.parseInt(idHandler);
+
+        String fieldsToUpdate = "What do you want to update? \n 1) Id \n 2) Name \n 3) Salary \n 4) Sector \n 5) Join date";
+
+        for(Employee employee : employeeArr){
+            if(employee.getId() == id){
+
+                String updateHandler = JOptionPane.showInputDialog(null, fieldsToUpdate);
+                int update = Integer.parseInt(updateHandler);
+
+                String newValue = JOptionPane.showInputDialog(null, "Type the new value: ");
+
+                switch(update){
+                    case 1: 
+                        employee.setId(Integer.parseInt(newValue));
+                        break;
+                    case 2:
+                        employee.setName(newValue);
+                        break;
+                    case 3: 
+                        employee.setSalary(Integer.parseInt(newValue));
+                        break;
+                    case 4: 
+                        employee.setSector(newValue);
+                        break;
+                    case 5:
+                        employee.setJoinDate(Integer.parseInt(newValue));
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Type a number from 1 to 5...");
+                }
+
+            }
+        }
 
         menu();
     }
