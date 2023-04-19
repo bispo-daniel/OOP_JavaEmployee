@@ -1,11 +1,18 @@
-package OOP_javaEmployee;
-
 class Employee{
     private int id;
     private String name;
     private float salary;
     private String sector;
     private int joinDate_MMDDYYYY;
+
+    //Constructor
+    public Employee(int id, String name, float salary, String sector, int joinDate_MMDDYYYY){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.sector = sector;
+        this.joinDate_MMDDYYYY = joinDate_MMDDYYYY;
+    }
 
     public int getId(){
         return id;

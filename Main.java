@@ -1,11 +1,8 @@
-package OOP_javaEmployee;
-
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main {
     private static ArrayList<Employee> employeeArr = new ArrayList<Employee>();
-    static int iterator = 0;
 
     private static void menu() {
         try{
@@ -52,16 +49,8 @@ public class Main {
         String joinDateHandler = JOptionPane.showInputDialog(null, "Type the employee's join date: ");
         int joinDate = Integer.parseInt(joinDateHandler);
 
-        employeeArr.add(new Employee());
-        
-        employeeArr.get(iterator).setId(id);
-        employeeArr.get(iterator).setName(name);
-        employeeArr.get(iterator).setSalary(salary);
-        employeeArr.get(iterator).setSector(sector);
-        employeeArr.get(iterator).setJoinDate(joinDate);
+        employeeArr.add(new Employee(id, name, salary, sector, joinDate));
 
-        iterator++;
-        
         menu();
     }
     
@@ -125,7 +114,6 @@ public class Main {
                 employeeArr.remove(ee);
                 JOptionPane.showMessageDialog(null, "Employee successfully removed!");
 
-                iterator--;
                 break;
             }
         }
